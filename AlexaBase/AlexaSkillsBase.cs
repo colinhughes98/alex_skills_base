@@ -32,13 +32,13 @@ namespace AlexaBase
                         true);
                 }
                 return MakeSkillResponse(
-                    $"I don't know how to handle this intent. Please say something like Alexa, ask {InvocationName} if {RepromptMessage}.",
+                    $"I don't know how to handle this intent. Please say something like Alexa, ask {InvocationName} {RepromptMessage}.",
                     true);
             }
             catch (Exception ex)
             {
                 logger.Log(ex.Message);
-                return MakeSkillResponse("Error", true);
+                return MakeSkillResponse(ex.Message, true);
             }
         }
 
